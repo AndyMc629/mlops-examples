@@ -16,15 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Poetry
-        run: pipx install poetry
+        run: pipx install pytest && pipx install ruff
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          cache: "poetry"
-      - name: Install dependencies
-        run: poetry install
+          cache: "pip"
       - name: Test with Pytest
-        run: poetry run pytest
+        run: pytest
       - name: Run Ruff
         run: poetry run ruff check --output-format=github
