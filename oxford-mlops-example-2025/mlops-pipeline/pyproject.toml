@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "mlops-pipeline"
+version = "0.1.0"
+description = ""
+authors = ["andymc629 <andrewpmcmahon629@gmail.com>"]
+readme = "README.md"
+packages = [{include = "mlops_pipeline"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scikit-learn = "^1.6.1"
+boto3 = "^1.36.16"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# So you can run main as a command.
+[tool.poetry.scripts]
+mlops-pipeline = "run:main"
