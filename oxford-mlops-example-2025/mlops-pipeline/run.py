@@ -1,8 +1,8 @@
 import argparse
-from mlops_pipeline.data import read_csv_file
+from mlops_pipeline.data import read_csv_file, write_df_to_s3
 from mlops_pipeline.model import run_predictions
 from mlops_pipeline.monitor import run_monitoring
-
+import pandas as pd
 
 def main():
     parser = argparse.ArgumentParser(description="MLOps Pipeline Runner")
@@ -11,6 +11,7 @@ def main():
     # Inference command
     parser_infer = subparsers.add_parser("inference", help="Run inference on a dataset")
     parser_infer.add_argument("--data", required=True, help="Path to input dataset")
+    parser_infer.add_argument("--output_dir", required=True, help="Path to output directory")
 
     # Monitoring command
     parser_monitor = subparsers.add_parser("monitoring", help="Run monitoring on outputs")
@@ -23,6 +24,8 @@ def main():
         data = read_csv_file(args.data)
         predictions = run_predictions(data)
         print(f"Inference results: {predictions}")
+        write_df_to_s3(pd.DataFrame(predictions), args.output_dir)
+        print(f"Predictions written to S3: s3://mlops-pipeline-example/inference/predictions.csv")
     elif args.command == "monitoring":
         run_monitoring(args.output_dir, args.truth_dir)
     else:

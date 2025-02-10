@@ -83,6 +83,27 @@ def read_csv_file(path: str, aws_profile: str = None) -> pd.DataFrame:
         return read_csv_from_s3(path, aws_profile)
     else:
         return read_csv_from_local(path)
+    
+def write_df_to_s3(df: pd.DataFrame, s3_path: str, aws_profile: str = None):
+    """
+    Write a DataFrame to an S3 bucket using boto3.
+    
+    Args:
+        df (pd.DataFrame): DataFrame to write.
+        s3_path (str): S3 URI in the format s3://bucket/key
+        aws_profile (str, optional): AWS profile to use. Defaults to None.
+    """
+    parsed_url = urlparse(s3_path)
+    bucket_name = parsed_url.netloc
+    key = parsed_url.path.lstrip('/')
+
+    session = boto3.Session(profile_name=aws_profile) if aws_profile else boto3.Session()
+    s3 = session.client('s3')
+
+    logger.info(f"Writing DataFrame to S3: {s3_path}")
+    s3.put_object(Bucket=bucket_name, Key=key, Body=df.to_csv(index=False))
+
+    logger.info(f"File written to S3: {s3_path}")
 
 # Example Usage
 if __name__ == "__main__":
