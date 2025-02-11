@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/apmcm/dev/mlops-examples/oxford-mlops-example-2025/mlflow/mlruns/0/d259c19880dd423eb0112f350286b79b/artifacts
+end_time: 1739299946471
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d259c19880dd423eb0112f350286b79b
+run_name: crawling-rat-82
+run_uuid: d259c19880dd423eb0112f350286b79b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739299946409
+status: 4
+tags: []
+user_id: apmcm

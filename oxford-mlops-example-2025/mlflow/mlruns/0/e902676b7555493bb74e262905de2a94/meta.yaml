@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/apmcm/dev/mlops-examples/oxford-mlops-example-2025/mlflow/mlruns/0/e902676b7555493bb74e262905de2a94/artifacts
+end_time: 1739299697605
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e902676b7555493bb74e262905de2a94
+run_name: bouncy-slug-39
+run_uuid: e902676b7555493bb74e262905de2a94
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739299695549
+status: 3
+tags: []
+user_id: apmcm

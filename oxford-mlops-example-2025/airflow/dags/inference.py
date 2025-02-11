@@ -17,8 +17,9 @@ with DAG(
 ) as dag:
 
     # Fetching variables
-    data_path = Variable.get("inference_data_path", default_var="s3://mlops-pipeline-example/landing/bank.csv")
-    docker_image = Variable.get("docker_image", default_var="mlops_pipeline_test")
+    landing_data_path = Variable.get("landing_data_path", default_var="s3://mlops-pipeline-example/landing/bank.csv")
+    output_path = Variable.get("output_data_path", default_var="s3://mlops-pipeline-example/inference/predictions.csv")
+    docker_image = Variable.get("docker_image", default_var="mlops_pipeline")
     
     load_models = BashOperator(
         task_id='load_models',
@@ -27,7 +28,7 @@ with DAG(
     
     run_inference_pipeline = BashOperator(
         task_id='run_inference_pipeline',
-        bash_command=f'docker run -v ~/.aws:/root/.aws:ro {docker_image} inference --data "{data_path}"'
+        bash_command=f'docker run -v ~/.aws:/root/.aws:ro {docker_image} inference --data "{landing_data_path}" --output_dir "{output_path}"'
     )
 
     log_inference_data = BashOperator(

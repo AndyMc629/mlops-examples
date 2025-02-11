@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/apmcm/dev/mlops-examples/oxford-mlops-example-2025/mlflow/mlruns/0/af9a37f809da475a8cba4c874418836a/artifacts
+end_time: 1739299957603
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: af9a37f809da475a8cba4c874418836a
+run_name: awesome-stork-123
+run_uuid: af9a37f809da475a8cba4c874418836a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739299956192
+status: 3
+tags: []
+user_id: apmcm

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mlflow-examples"
+version = "0.1.0"
+description = ""
+authors = ["andymc629 <andrewpmcmahon629@gmail.com>"]
+readme = "README.md"
+packages = [{include = "mlflow_examples"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mlflow = "^2.20.1"
+openai = "^1.61.1"
+tiktoken = "^0.8.0"
+tenacity = "^9.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

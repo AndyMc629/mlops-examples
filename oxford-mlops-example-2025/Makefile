@@ -17,17 +17,17 @@ build-package:
 	@cd ./mlops-pipeline && poetry install
 
 run-airflow:
-	bash ./airflow/airflow-standalone.sh
+	@cd ./airflow && bash airflow-standalone.sh
 
 install-airflow:
-	bash ./airflow/airflow-install.sh
+	@cd ./airflow && bash airflow-install.sh
 
 deploy-airflow-dags:
-	bash ./airflow/airflow-deploy-dags.sh
+	@cd ./airflow && bash airflow-deploy-dags.sh
 
 clean-airflow-db:
-	bash ./airflow/airflow-db-clean-init.sh
+	@cd ./airflow && bash airflow-db-clean-init.sh
 
 redo-airflow-admin-user:
-	bash ./airflow/airflow-redo-admin-user.sh
+	@cd ./airflow && bash airflow-redo-admin-user.sh
 
