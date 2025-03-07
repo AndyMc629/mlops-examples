@@ -1,0 +1,71 @@
+{
+    "build": {
+        // use root directory as build context so that requirements-dev.txt is accessible during build
+        "context": "../../../",
+        "dockerfile": "Dockerfile"
+    },
+    "shutdownAction": "none",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true,
+            "upgradePackages": false,
+            "username": "devuser",
+        },
+    },
+    "runArgs": [
+        "--env-file",
+        "../../.env"
+    ],
+    "postCreateCommand": "pre-commit install --overwrite",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "codezombiech.gitignore",
+                "DavidAnson.vscode-markdownlint",
+                "donjayamanne.githistory",
+                "donjayamanne.python-environment-manager",
+                "donjayamanne.vscode-default-python-kernel",
+                "eamodio.gitlens",
+                "GitHub.copilot",
+                "github.copilot-chat",
+                "Gruntfuggly.todo-tree",
+                "ionutvmi.path-autocomplete",
+                "marchiore.csvtomarkdown",
+                "mechatroner.rainbow-csv",
+                "ms-azure-devops.azure-pipelines",
+                "ms-python.mypy-type-checker",
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "ms-vsliveshare.vsliveshare",
+                "njpwerner.autodocstring",
+                "redhat.vscode-yaml",
+                "streetsidesoftware.code-spell-checker",
+                "timonwong.shellcheck",
+                "charliermarsh.ruff",
+                "grapecity.gc-excelviewer"
+            ],
+            "settings": {
+                "autoDocstring.docstringFormat": "google",
+                "mypy-type-checker.importStrategy": "fromEnvironment",
+                "python.testing.pytestEnabled": true,
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "[python]": {
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": "explicit",
+                        "source.organizeImports.ruff": "explicit"
+                    },
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.formatOnSave": true,
+                    "files.trimTrailingWhitespace": true
+                },
+                "notebook.formatOnSave.enabled": true,
+                "notebook.codeActionsOnSave": {
+                    "notebook.source.fixAll": "explicit",
+                    "notebook.source.organizeImports": "explicit"
+                },
+            },
+        }
+    },
+}

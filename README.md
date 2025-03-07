@@ -6,7 +6,7 @@ Some examples of MLOps implementations, used for my lectures at Oxford and elsew
 There is a makefile, no devcontainer running.
 
 Key steps are really:
-1. Ensure mlops-pipeline package is built with poetry
+1. Ensure mlops-pipeline package is built with poetrypyt
 2. Use makefile to build the mlops-pipeline container
 3. Use makefile to "deploy" the airflow dags
 4. Use makefile to run airflow standalone
@@ -17,3 +17,8 @@ For evidently demo:
 2. ```conda activate mlewp-chapter03-drift```
 3. ```jupyter notebook``` then run the evidently example
 4. Try multiplying dataset by 1.1 to see drift
+
+
+## warsaw-ai-for-execs-2025
+
+This is a collection of examples from the Warsaw AI for Execs course.

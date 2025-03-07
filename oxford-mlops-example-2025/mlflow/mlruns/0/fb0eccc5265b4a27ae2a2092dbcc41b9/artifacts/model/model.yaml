@@ -1,3 +1,0 @@
-model: gpt-4o-mini
-prompt: 'Classify the following tweet''s sentiment: ''{tweet}''.'
-task: completions

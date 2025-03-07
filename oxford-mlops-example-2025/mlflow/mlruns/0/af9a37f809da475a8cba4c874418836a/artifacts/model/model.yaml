@@ -1,3 +1,0 @@
-model: text-davinci-002
-prompt: 'Classify the following tweet''s sentiment: ''{tweet}''.'
-task: completions
